@@ -1,23 +1,25 @@
 const navbar = () => {
-  let tabCreate = pageName => {
-    let li = document.createElement("li");
-    let a = document.createElement("a");
-    li.classList.add("nav-item");
-    a.classList.add("nav-link");
-    a.textContent = pageName;
-  };
+  const optionHome = document.createElement("li");
+  optionHome.classList.add("nav-item");
+  const home = document.createElement("a");
+  home.classList.add("nav-link", "active");
+  home.setAttribute("aria-current", "page");
+  home.href = "#";
+  home.textContent = "Home";
+  optionHome.append(home);
+  const optionContactUs = document.createElement("li");
+  optionContactUs.classList.add("nav-item");
+  const contactUs = document.createElement("a");
+  contactUs.classList.add("nav-link");
+  contactUs.href = "#";
+  contactUs.textContent = "Contact Us";
+  optionContactUs.append(contactUs);
 
-  let home = tabCreate("Home");
-  home.classList.add("active");
-  home.addAttribute("aria-current", "page");
-  home.addAttribute("href", "#");
-  let menu = tabCreate("Menu");
-  let contactUs = tabCreate("Contact Us");
-  let nav = document.createElement("div");
+  let nav = document.createElement("ul");
   nav.classList.add("nav", "nav-pills");
-  nav.append(home, menu, contactUs);
+  nav.append(optionHome, optionContactUs);
 
-  console.log("Hello, World");
+  return nav;
 };
 
 export default navbar;

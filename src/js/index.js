@@ -6,4 +6,6 @@ import * as bootstrap from "bootstrap";
 
 import navbar from "./navbar";
 
-navbar();
+const content = document.querySelector("#content");
+
+content.append(navbar());
